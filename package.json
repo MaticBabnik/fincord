@@ -1,0 +1,34 @@
+{
+  "name": "fincord",
+  "main": "build/index.js",
+  "version": "0.0.9",
+  "scripts": {
+    "build": "tsc",
+    "start": "node build/src/index.js",
+    "register": "ts-node src/register-commands.ts",
+    "watch": "tsc-watch --onSuccess \"node build/src/index.js\""
+  },
+  "author": "Matic Babnbik",
+  "license": "MIT",
+  "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/opus": "^0.8.0",
+    "@discordjs/rest": "^0.5.0",
+    "@discordjs/voice": "^0.10.0",
+    "@thornbill/jellyfin-sdk": "^0.5.0",
+    "discord-api-types": "^0.36.1",
+    "discord.js": "^13.8.1",
+    "jellyfin-apiclient": "^1.10.0",
+    "sodium": "^3.0.2",
+    "ws": "^7.5.8"
+  },
+  "devDependencies": {
+    "ts-node": "^10.8.2",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4"
+  },
+  "optionalDependencies": {
+    "bufferutil": "^4.0.6",
+    "utf-8-validate": "^5.0.9"
+  }
+}
