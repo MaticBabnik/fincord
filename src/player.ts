@@ -37,6 +37,12 @@ const eventToHandlerMap: { [index: string]: keyof JellySockEventHandler } = {
 }
 
 
+/*
+TODO:
+ - handle shuffle and loop (once this gets solved https://github.com/jellyfin/jellyfin-web/issues/3759)
+ - open another issue since webUI doesn't show remote queue
+*/
+
 export class JellyfinPlayer implements JellySockEventHandler {
     protected socket: JellySock;
     protected queue: string[] = [];
@@ -56,7 +62,6 @@ export class JellyfinPlayer implements JellySockEventHandler {
     }
 
     public playId(id: string, time: number = 0) {
-        console.log(time);
         if (time === 0) {
             this.player.play(createAudioResource(this.fin.getStreamUrl(id)));
         } else {
@@ -162,7 +167,6 @@ export class JellyfinPlayer implements JellySockEventHandler {
         this.socket.on('message', this.handleJellyfin.bind(this));
         //@ts-ignore
         this.player.on('stateChange', (olds, news) => {
-            console.log(`Player state ${olds.status}=>${news.status}`);
             switch (news.status) {
                 case "playing":
                     this.currentState = "playing";

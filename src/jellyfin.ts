@@ -1,6 +1,4 @@
 import { Config } from "./config";
-import pkg from "../package.json";
-
 import * as JellyfinSdk from "@thornbill/jellyfin-sdk";
 //system api
 import { getSystemApi } from "@thornbill/jellyfin-sdk/lib/utils/api/system-api"
@@ -172,7 +170,7 @@ export class Jellyfin {
         Jellyfin.fin = new JellyfinSdk.Jellyfin({
             clientInfo: {
                 name: appName ?? "Fincord",
-                version: pkg.version ?? "0.0.0",
+                version: "1.0.0",
             },
             deviceInfo: {
                 name: "node-js",

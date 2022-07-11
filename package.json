@@ -4,9 +4,9 @@
   "version": "0.0.9",
   "scripts": {
     "build": "tsc",
-    "start": "node build/src/index.js",
+    "start": "node build/index.js",
     "register": "ts-node src/register-commands.ts",
-    "watch": "tsc-watch --onSuccess \"node build/src/index.js\""
+    "watch": "tsc-watch --onSuccess \"node build/index.js\""
   },
   "author": "Matic Babnbik",
   "license": "MIT",
