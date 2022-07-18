@@ -87,6 +87,11 @@ export class JellySock extends EventEmitter {
             clearInterval(this.keepAlive);
             this.keepAlive = undefined;
         }
+
+        console.log("[JellySock] Waiting 1 s before reconnecting");
+        setTimeout(() => {
+            this.open();
+        }, 1000);
     }
 
     public open() {

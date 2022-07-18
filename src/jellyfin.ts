@@ -135,7 +135,10 @@ export class Jellyfin {
                 //@ts-ignore
                 ShuffleMode: "Sorted"
             }
-        });
+        }).catch(err => {
+            console.error("Failed to report playback start");
+            console.error(err);
+        })
     }
 
     public reportPlaybackProgress(mediaId: string, paused: boolean, position: number, state?: Partial<PlaybackProgressInfo>) {
@@ -155,6 +158,9 @@ export class Jellyfin {
                 //@ts-ignore
                 ShuffleMode: "Sorted"
             }
+        }).catch(err => {
+            console.error("Failed to report playback progress");
+            console.error(err);
         });
     }
 
@@ -163,7 +169,10 @@ export class Jellyfin {
             playbackStopInfo: {
                 SessionId: this.sessionId,
             }
-        });
+        }).catch(err => {
+            console.error("Failed to report playback stop");
+            console.error(err);
+        });;
     }
 
     private constructor() {
